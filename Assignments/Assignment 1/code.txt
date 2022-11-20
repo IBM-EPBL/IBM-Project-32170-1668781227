@@ -1,0 +1,52 @@
+#define trigPin 9
+#define echoPin 8
+
+void setup()
+{
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, INPUT);
+  pinMode(7, INPUT);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop()
+{
+  if(digitalRead(10))
+  {
+    digitalWrite(13, HIGH);
+  }
+  else
+  {
+    digitalWrite(13, LOW);
+  }
+	digitalWrite(trigPin, LOW);
+	delayMicroseconds(2);
+
+
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);
+
+    int duration = pulseIn(echoPin, HIGH);
+    int distance= duration/ 29 / 2;
+      if(distance>110)
+      {
+        digitalWrite(12, HIGH);
+      }
+      else
+      {
+        digitalWrite(12, LOW);
+      }
+  
+    digitalWrite(11, HIGH);
+	delay(1000);
+  	digitalWrite(11, LOW);
+  	delay(1000);
+ 	
+}
+
+//done by Narenthra Kishore R S,Priyanka R,Mahalakasmi S,Monika M
+
